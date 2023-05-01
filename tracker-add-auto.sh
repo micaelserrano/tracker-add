@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Starting..."
+
 add_trackers () {
     torrent_hash=$1
     id=$2
@@ -33,6 +35,7 @@ while true ; do
     # Get list of active torrents
     ids="$(transmission-remote "$HOSTPORT" --authenv --list | grep -vE 'Seeding|Stopped|Finished|[[:space:]]100%[[:space:]]' | grep '^ ' | awk '{ print $1 }' | tail -n +2)"
     for id in $ids ; do
+        echo "Processing torrent with id: ${id}"
         add_date="$(transmission-remote "$HOSTPORT" --authenv --torrent "$id" --info| grep '^  Date added: ' |cut -c 21-)"
         add_date_t="$(date -d "$add_date" "+%Y-%m-%d %H:%M")"
         dater="$(date "+%Y-%m-%d %H:%M")"
@@ -47,4 +50,5 @@ while true ; do
             fi
         fi
     done
+    echo "Finished processing list of torrents."
 done
