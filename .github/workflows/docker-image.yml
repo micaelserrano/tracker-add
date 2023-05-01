@@ -34,4 +34,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
-          tags: andrewmhub/transmission-tracker-add:latest
+          tags: micaelserrano/tracker-add:latest
