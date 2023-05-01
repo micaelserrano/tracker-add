@@ -3,12 +3,12 @@
 See no peers for some torrent(s)? Add more tracker(s) from Transmission
 
 ## Installation
-cd directory where Dockerfile `docker build -t transmission-tracker-add:latest .` or take image `docker pull andrewmhub/transmission-tracker-add`
+cd directory where Dockerfile `docker build -t transmission-tracker-add:latest .` or take image `docker pull micaelserrano/transmission-tracker-add`
 
 
 ## Usage
 ```
-docker run --net=host -d -e HOSTPORT=localhost:9091 -e TR_AUTH=user:password --name=transmission-tracker-add andrewmhub/transmission-tracker-add:latest
+docker run --net=host -d -e HOSTPORT=localhost:9091 -e TR_AUTH=user:password --name=transmission-tracker-add micaelserrano/transmission-tracker-add:latest
 ```
 if need use another torrent tracker list use docker run env 
 
